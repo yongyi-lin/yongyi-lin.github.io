@@ -80,14 +80,15 @@
         <a class="image avatar"><img src="{{ site.avatar }}" alt="avatar" /></a>
         {% endif %}
 
-        <h1>{{ site.title }}</h1>
+        <h1>{{ site.title | downcase }}</h1>
+        <!-- <h1>林 咏毅</h1> -->
 
         {% if site.position %}
-        <position style="font-size:1.10rem;">{{ site.position }}</position>
+        <position style="font-size:1rem;">{{ site.position | downcase }}</position>
         <br>
         {% endif %}
         {% if site.affiliation %}
-        <a href="{{ site.affiliation_link }}" rel="noopener"><autocolor>{{ site.affiliation }}</autocolor></a>
+        <a href="{{ site.affiliation_link }}" rel="noopener" style="font-size:1rem;"><autocolor>{{ site.affiliation | downcase }}</autocolor></a>
         <br>
         {% endif %}
         {% if site.email %}

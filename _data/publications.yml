@@ -5,7 +5,8 @@ main:
     conference_short: JMP
     conference: <strong>Job Market Paper</strong>
     pdf: https://www.dropbox.com/scl/fi/8yoo0x5hw6qg5c32c1qra/article.pdf?rlkey=m0sh4l62tzr69qpb9ysi9xws9&st=x42kiexk&dl=0
-    notes: nominated for <strong>2025 Strategic Management Society Ph.D. Paper Prize</strong>. invited to present at <strong>2025 Strategy Science Conference, 2025 Industry Studies Association Annual Meeting, 2025 Duke Strategy Ph.D. Conference, 2025 East Coast Doctoral Conference.</strong>
+    notes: Nominated for <strong>2025 Strategic Management Society Ph.D. Paper Prize</strong>.
+    additional_info: Invited to present at <strong>2025 Strategy Science Conference, 2025 Industry Studies Association Annual Meeting, 2025 Duke Strategy Ph.D. Conference, 2025 East Coast Doctoral Conference.</strong>
 
   - title: "Are There Gender Differences in Ambition? Evidence from an Online Experiment"
     authors: Nathan Barrymore, Cristian L. Dezső, <strong>Yongyi Lin</strong>
@@ -24,3 +25,16 @@ main:
     conference_short: CER
     conference: <strong>China Economic Review</strong>
     pdf: https://www.dropbox.com/scl/fi/z4tj2lzqqmdk7cotpg4t6/cer.pdf?rlkey=6v1az4b6s0ps65pl1flmjljxj&st=6jjn6q2q&dl=0
+
+work_in_progress:
+  - title: "Mandatory Disclosure and Brain Drain"
+    authors: <strong>Yongyi Lin</strong>
+    status: "[data collection]"
+
+  - title: "Signaling and Venture Capital Investment Decisions"
+    authors: <strong>Yongyi Lin</strong>
+    status: "[data collection]"
+
+  - title: "Investment Ownership Legislation and Patenting"
+    authors: Justin Frake, <strong>Yongyi Lin</strong>, Kyeongki Park, and Evan Starr
+    status: "[data analysis]"
