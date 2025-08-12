@@ -1,0 +1,25 @@
+# Jekyll build files
+_site/
+.jekyll-cache/
+.jekyll-metadata
+
+# System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Backup files
+*~
+*.swp
+*.swo
+
+# Temporary files
+html_source_file/
