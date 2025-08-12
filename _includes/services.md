@@ -1,3 +1,25 @@
+## Work in Progress
+
+**Mandatory Disclosure and Brain Drain** [data collection]  
+*Yongyi Lin*
+
+**Signaling and Venture Capital Investment Decisions** [data collection]  
+*Yongyi Lin*
+
+**Investment Ownership Legislation and Patenting** [data analysis]  
+*Justin Frake, Yongyi Lin, Kyeongki Park, and Evan Starr*
+
+## Teaching
+
+As an instructor:
+- BMGT392 International Business • Undergraduate Core • University of Maryland
+- ECON601 Microeconomic Theory • Graduate Tutorial • Duke University
+
+As a teaching assistant:
+- BUSO626 Global Economic Environment • TA for Prof. Bennet A. Zelner • Spring 2024
+- BUSI758 Global Risks and Opportunities • TA for Prof. Bennet A. Zelner • Spring 2022
+- BUSI788 Global Business • TA for Prof. Bennet A. Zelner • Fall 2021, 2022, 2023
+
 ## Services
 
 <h4 style="margin:0 10px 0;">Conference Reviewers</h4>

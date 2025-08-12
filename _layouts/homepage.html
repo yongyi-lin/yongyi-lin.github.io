@@ -33,6 +33,43 @@
     <link rel="stylesheet" href="./assets/css/style-no-dark-mode.css">
     <link rel="stylesheet" href="./assets/css/publications-no-dark-mode.css">
     {% endif %}
+    <style>
+      /* Ensure consistent vertical spacing between sections */
+      section>h2 {
+        margin-top: 40px !important;
+        margin-bottom: 16px !important;
+      }
+
+      section>h2:first-child {
+        margin-top: 0 !important;
+      }
+
+      section>p,
+      section>ul,
+      section>div.publications,
+      section>.pub-row {
+        margin-bottom: 24px !important;
+        margin-top: 0 !important;
+      }
+
+      .publications {
+        margin-bottom: 0 !important;
+      }
+
+      .bibliography>li {
+        margin-bottom: 32px !important;
+      }
+
+      /* Remove extra space after last section */
+      section>p:last-child {
+        margin-bottom: 0 !important;
+      }
+
+      /* Remove extra <br> at the end of teaching section */
+      section>br {
+        display: none;
+      }
+    </style>
 
   </head>
   <body>
