@@ -3,7 +3,7 @@
   <ol class="bibliography" style="padding-left: 0;">
     {% for link in site.data.publications.main %}
     <li>
-      <div class="pub-row" style="margin-bottom: 20px;">
+      <div class="pub-row" style="margin-bottom: 10px;">
         <!-- Article Image and Badge (commented out as per your _site version) -->
         <!-- <div class="col-sm-3 abbr" style="position: relative;padding-right: 15px;padding-left: 15px;">
           {% if link.image %} 

@@ -1,43 +1,62 @@
+<!--
+  Main homepage layout for the Jekyll site.
+  This template renders the homepage with dynamic content and metadata.
+  It uses Liquid templating to inject site variables and conditionally render sections.
+-->
+
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
   <head>
+    <!-- Page title and site affiliation -->
     <title>{{ site.title }} | {{site.affiliation}}</title>
 
+    <!-- Meta tags for character set, compatibility, viewport, and description -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ site.description }}">
+
+    <!-- Optional meta keywords if provided in _config.yml -->
     {% if site.keywords %}
     <meta name="keywords" content="{{ site.keywords }}">
     {% endif %}
+
+    <!-- Canonical link for SEO if provided -->
     {% if site.canonical %}
     <link rel="canonical" href="{{ site.canonical }}"/>
     {% endif %}
 
-    <link rel="icon" media="(prefers-color-scheme:dark)" href="{{ site.favicon_dark }}" type="image/png" />
-    <link rel="icon" media="(prefers-color-scheme:light)" href="{{ site.favicon }}" type="image/png" />
-    <script src="./assets/js/favicon-switcher.js" type="application/javascript"></script>
+    <!-- Favicon -->
+    <link rel="icon" href="{{ site.favicon }}" type="image/png" />
 
+    <!-- External icon fonts: Academicons and Font Awesome -->
     <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin=anonymous>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
+    <!-- Font selection: Sans Serif or default -->
     {% if site.font == "Sans Serif" %}
     <link rel="stylesheet" href="./assets/css/font_sans_serif.css">
     {% else %}
     <link rel="stylesheet" href="./assets/css/font.css">
     {% endif %}
-    {% if site.auto_dark_mode %}
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/publications.css">
-    {% else %}
+
+    <!-- Theme stylesheets -->
     <link rel="stylesheet" href="./assets/css/style-no-dark-mode.css">
     <link rel="stylesheet" href="./assets/css/publications-no-dark-mode.css">
-    {% endif %}
+
+    <!-- Inline CSS for heading sizes and section spacing -->
     <style>
+      h1 {
+        font-size: 2.5rem !important;
+      }
+      h2 {
+        font-size: 2rem !important;
+      }
+
       /* Ensure consistent vertical spacing between sections */
       section>h2 {
-        margin-top: 40px !important;
-        margin-bottom: 16px !important;
+        margin-top: 30px !important;
+        margin-bottom: 20px !important;
       }
 
       section>h2:first-child {
@@ -57,7 +76,7 @@
       }
 
       .bibliography>li {
-        margin-bottom: 32px !important;
+        margin-bottom: 16px !important;
       }
 
       /* Remove extra space after last section */
@@ -69,20 +88,41 @@
       section>br {
         display: none;
       }
+
+      /* Force left alignment for sidebar elements */
+      header {
+        text-align: left !important;
+      }
+      
+      .image.avatar {
+        text-align: left !important;
+      }
+      
+      .image.avatar img {
+        display: block !important;
+        margin-left: 0 !important;
+      }
+      
+      .social-icons {
+        text-align: left !important;
+      }
     </style>
 
   </head>
   <body>
     <div class="wrapper">
       <header>
-        
+        <!-- Avatar image if provided -->
         {% if site.avatar %}
         <a class="image avatar"><img src="{{ site.avatar }}" alt="avatar" /></a>
         {% endif %}
 
+        <!-- Site title (lowercase) -->
         <h1>{{ site.title | downcase }}</h1>
+        <!-- Example of non-Latin name (commented out) -->
         <!-- <h1>林 咏毅</h1> -->
 
+        <!-- Position and affiliation if provided -->
         {% if site.position %}
         <position style="font-size:1rem;">{{ site.position | downcase }}</position>
         <br>
@@ -91,39 +131,41 @@
         <a href="{{ site.affiliation_link }}" rel="noopener" style="font-size:1rem;"><autocolor>{{ site.affiliation | downcase }}</autocolor></a>
         <br>
         {% endif %}
+        <!-- Email if provided -->
         {% if site.email %}
         <email>{{ site.email }}</email>
         {% endif %}
 
         <br>
         <br>
+        <!-- Social icons: Google Scholar, CV, GitHub, LinkedIn, Twitter (conditionally rendered) -->
         <div class="social-icons">
         {% if site.google_scholar %}
-        <a style="margin: 0 5px 0 0" href="{{ site.google_scholar }}">
+        <a href="{{ site.google_scholar }}">
           <i class="ai ai-google-scholar" style="font-size:1.2rem"></i>
         </a>  
         {% endif %}
 
         {% if site.cv_link %}
-        <a style="margin: 0 5px 0 0" href="{{ site.cv_link }}">
-          <i class="ai ai-cv" style="font-size:1.3rem;"></i>
+        <a href="{{ site.cv_link }}">
+          <i class="ai ai-cv" style="font-size:1.5rem;"></i>
         </a>
         {% endif %}
 
         {% if site.github_link %}
-        <a style="margin: 0 5px 0 0" href="{{ site.github_link }}">
+        <a href="{{ site.github_link }}">
           <i class="fab fa-github"></i>
         </a>
         {% endif %}
 
         {% if site.linkedin %}
-        <a style="margin: 0 5px 0 0" href="{{ site.linkedin }}">
+        <a href="{{ site.linkedin }}">
           <i class="fab fa-linkedin"></i>
         </a>
         {% endif %}
 
         {% if site.twitter %}
-        <a style="margin: 0 0 0 0" href="{{ site.twitter }}">
+        <a href="{{ site.twitter }}">
           <i class="fab fa-x-twitter"></i>
         </a>
         {% endif %}
@@ -133,20 +175,24 @@
       </header>
       <section>
 
+      <!-- Main page content injected here -->
       {{ content }}
 
       <br>
 
+      <!-- Optional footnote if enabled in config -->
       {% if site.enable_footnote %}
       <p><small>Powered by Jekyll and <a href="https://github.com/yaoyao-liu/minimal-light" target="_blank" rel="noopener">Minimal Light</a> theme.</small></p>
       {% endif %}
 
       </section>
       <footer>
-        
+        <!-- Footer (currently empty) -->
       </footer>
     </div>
+    <!-- JS for GitHub Pages scaling bug fix -->
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+    <!-- Google Analytics tracking if enabled -->
     {% if site.google_analytics %}
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

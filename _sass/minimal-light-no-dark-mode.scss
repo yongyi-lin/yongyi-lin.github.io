@@ -2,6 +2,12 @@
   display: flex; 
   align-items: center;}
 
+.social-icons {
+  text-align: left !important;
+  margin-left: -10px !important;
+  display: block !important;
+}
+
 .social-icons a{
   display:inline-block;
   height:2.4rem;
@@ -12,7 +18,9 @@
   text-align:center;
   font-size:1.15rem;
   line-height:2.5rem;
-  margin-right:1rem}
+  margin-right:1rem;
+  margin-left: 0 !important;
+}
 
 .social-icons a:last-child{margin-right:0}.social-icons a:hover{background-color:white;
     color:black;
@@ -123,13 +131,9 @@ lightonly {
   visibility: visible;
 }
 
-darkonly {
-  visibility: hidden;
-}
-
 education {
     font-weight: 500;
-    font-size: 115%;
+    font-size: 100%;
   }
 papertitle {
     font-weight: 600;
@@ -160,21 +164,30 @@ papertitle {
     }
 
     .image.avatar {
-      border-radius: 0;
-    }
+  border-radius: 0;
+  text-align: left !important;
+  display: block !important;
+  margin: 0 !important;
+}
 
-      .image.avatar:before {
-        display: none;
-      }
+.image.avatar:before {
+  display: none;
+}
 
       .image.avatar img {
-        border-radius: 0;
-        width: 45%;
-        padding: 20px;
-        // border: 1px solid #ddd;
-        // padding: 3px;
-        // box-shadow: 0 -1px 5px 1px rgba(200, 200, 200, 0.3);
-      }
+  border-radius: 0;
+  width: 60%;
+  padding: 20px 20px 20px 0px;
+  object-fit: cover;
+  object-position: 10% 85%;
+  display: block !important;
+  margin-left: -10px !important;
+  margin-right: auto !important;
+  float: left !important;
+  // border: 1px solid #ddd;
+  // padding: 3px;
+  // box-shadow: 0 -1px 5px 1px rgba(200, 200, 200, 0.3);
+}
 
     #header .image.avatar {
       margin: 0 0 1em 0;
@@ -189,12 +202,12 @@ h3, h4, h5, h6 {
 
 h1 {
   font-weight: 500;
-  color:#043361;
+  color:#000000;
   margin:0 0 20px;
 }
 
 h2 {
-  color:#043361;
+  color:#000000;
   font-weight: 500;
   margin:2px 0px 15px;
   font-size: 157%;
@@ -213,12 +226,12 @@ h1 {
 }
 
 a {
-  color:#39c;
+  color:rgb(217, 49, 102);
   text-decoration:none;
 }
 
 a:hover {
-  color:#069;
+  color:rgba(218, 13, 78, 0.672);
 }
 
 a small {
@@ -283,12 +296,12 @@ img {
 }
 
 header {
-  width:232px;
+  width:250px;
   float:left;
   position:fixed;
   -webkit-font-smoothing:subpixel-antialiased;
-  padding-top:4.0em;
-  text-align:center
+  padding-top:3.5em;
+  text-align:left !important;
 }
 
 
@@ -353,10 +366,11 @@ header ul a strong {
 }
 
 section {
-  width:650px;
+  width:760px;
   float:right;
   padding-top:4.0em;
   padding-bottom:50px;
+  margin-left: 560px;
 }
 
 small {
@@ -398,7 +412,7 @@ footer {
   }
 
   header {
-    padding-right:320px;
+    padding-right:240px;
   }
 
   section {
@@ -422,7 +436,11 @@ footer {
    .image.avatar img {
         border-radius: 0;
         width: 117px;
-        padding:20px;
+        padding: 20px 20px 20px 0px;
+        display: block !important;
+        margin-left: -10px !important;
+        margin-right: auto !important;
+        float: left !important;
       }
   #head1o2 {
     visibility: hidden;
@@ -478,7 +496,11 @@ footer {
   .image.avatar img {
       border-radius: 0;
       width: 95px;
-      padding:20px;
+      padding: 20px 20px 20px 0px;
+      display: block !important;
+      margin-left: -10px !important;
+      margin-right: auto !important;
+      float: left !important;
   }
   #head1o2 {
     visibility: hidden;
