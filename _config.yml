@@ -10,6 +10,10 @@ keywords: yongyi lin, umd, university of maryland, phd candidate, managerial eco
 description: Yongyi Lin - Ph.D. candidate in Managerial Economics and Strategy at University of Maryland. Research focuses on regulations, innovation, and competitive strategies in the pharmaceutical industry.
 canonical: https://yongyi-lin.github.io
 
+# GitHub Pages Configuration
+url: "https://yongyi-lin.github.io"
+baseurl: ""
+
 # Links 
 # If you don't need one of them, you may delete the corresponding line.
 google_scholar: https://scholar.google.com/citations?user=zbV8hgMAAAAJ&hl=en&oi=ao
@@ -19,8 +23,8 @@ linkedin: https://www.linkedin.com/in/yongyi-lin-s1d2
 # twitter: https://twitter.com/
 
 # Images (e.g., your profile picture and your website's favicon) 
-avatar: ./assets/img/profile.jpeg
-favicon: ./assets/img/favicon.png
+avatar: assets/img/profile.jpeg
+favicon: assets/img/favicon.png
 
 # Footnote
 # You may use the option to disable the footnote, "Powered by Jekyll and Minimal Light theme."
