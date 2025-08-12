@@ -1,26 +1,26 @@
 # Basic Information 
-title: Your Name
-position: Ph.D. Student
-affiliation: Your Affiliation
-email: yourname (at) example.edu
+title: Yongyi Lin
+position: Ph.D. Candidate
+affiliation: University of Maryland, College Park
+email: ylin17@umd.edu
 
 # Search Engine Optimization (SEO)
 # The following information is used to improve the website traffic from search engines, e.g., Google.
-keywords: 
+keywords: yongyi lin umd
 description: 
 canonical: 
 
 # Links 
 # If you don't need one of them, you may delete the corresponding line.
-google_scholar: https://scholar.google.com/
-cv_link: assets/files/curriculum_vitae.pdf
-github_link: https://github.com/
-linkedin: https://www.linkedin.com/
-twitter: https://twitter.com/
+google_scholar: https://scholar.google.com/citations?user=zbV8hgMAAAAJ&hl=en&oi=ao
+cv_link: assets/files/cv.pdf
+# github_link: https://github.com/
+linkedin: https://www.linkedin.com/in/yongyi-lin-s1d2
+# twitter: https://twitter.com/
 
 # Images (e.g., your profile picture and your website's favicon) 
 # "favicon" and "favicon_dark" are used for the light and dark modes, respectively. 
-avatar: ./assets/img/avatar.png
+avatar: ./assets/img/profile.jpeg
 favicon: ./assets/img/favicon.png
 favicon_dark: ./assets/img/favicon-dark.png
 
@@ -30,7 +30,7 @@ enable_footnote: true
 
 # Auto Dark Mode
 # You may use the option to disable the automatic dark theme
-auto_dark_mode: true
+auto_dark_mode: false
 
 # Font
 # You can use this option to choose between Serif or Sans Serif fonts.
