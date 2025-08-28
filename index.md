@@ -11,7 +11,7 @@ I am a fifth-year Ph.D. candidate in managerial economics and strategy at Robert
 <p style="margin-bottom: 4px;">B.A. in Economics, Jinan University, 2015-2019</p>
 
 <h2 id="research-interests" style="font-size:2rem;">research interests</h2>
-I specialize in exploring the relationships between regulations, innovation, and competitive strategies. My research predominantly centers on the pharmaceutical industry, in which I apply frameworks from industrial organization economics and strategic management to understand how regulatory landscapes influence firms' strategic decision-making. Another strand of my research investigates how gender differences in personal traits shape human capital allocation and workforce dynamics.
+I examine how regulations and market structures shape innovation strategies in knowledge-intensive industries. My research reveals how transparency mandates, intellectual property regimes, and venture capital concentration influence firms' R&D decisions—from geographic allocation and risk-taking to the fundamental choice between breakthrough and incremental innovation. Through studies of pharmaceutical development and entrepreneurial finance, I investigate the unintended consequences of institutional forces on technological progress and competitive dynamics.
 
 {% include_relative _includes/publications.md %}
 
