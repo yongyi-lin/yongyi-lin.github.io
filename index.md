@@ -3,7 +3,7 @@ layout: homepage
 ---
 
 <h2 id="about-me" style="font-size:2rem;">about me</h2>
-I am a fifth-year Ph.D. candidate in managerial economics and strategy at Robert H. Smith School of Business, University of Maryland. I am on the 2025-2026 job market, actively seeking a tenure-track position in strategic management and entrepreneurship.
+I am a fifth-year Ph.D. candidate in managerial economics and strategy at Robert H. Smith School of Business, University of Maryland. I am on the 2025-2026 job market.
 
 
 <h2 id="research-interests" style="font-size:2rem;">research interests</h2>
