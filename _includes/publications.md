@@ -17,7 +17,7 @@
         <!-- Article Details -->
         <div class="col-sm-9" style="position: relative;padding-right: 15px;padding-left: 0px;">
           <div class="title" style="font-weight: normal; font-size: 1em;">
-            <a href="{{ link.pdf }}" style="font-weight: normal; font-size: 1.1em; color: #913E33;">{{ link.title }}</a>
+            <a href="{{ link.pdf }}" style="font-weight: normal; font-size: 1.1em; color:rgb(129, 3, 3);">{{ link.title }}</a>
           </div>
           <div class="author">{{ link.authors }}</div>
           <div class="periodical"><em>{{ link.conference }}</em></div>
