@@ -1,4 +1,4 @@
-<h2 id="publications" style="font-size:2rem;">articles</h2>
+<h2 id="publications" style="font-size:2rem;">Articles</h2>
 <div class="publications">
   <ol class="bibliography" style="padding-left: 0;">
     {% for link in site.data.publications.main %}
@@ -37,7 +37,7 @@
 </div>
 
 <!-- Work in Progress Section -->
-<h2 id="work-in-progress">work in progress</h2>
+<h2 id="work-in-progress">Work in Progress</h2>
 {% for project in site.data.publications.work_in_progress %}
 <div class="pub-row" style="margin-bottom: 0;">
   <div class="col-sm-9" style="position: relative;padding-right: 15px;padding-left: 0px;">

@@ -1,4 +1,4 @@
-<h2 id="teaching" style="font-size:2rem;">teaching</h2>
+<h2 id="teaching" style="font-size:2rem;">Teaching</h2>
 <p>As an instructor:</p>
 <ul>
   <li>BMGT392 International Business • Undergraduate Core • University of Maryland</li>
