@@ -117,18 +117,17 @@
         <a class="image avatar"><img src="{{ site.avatar }}" alt="avatar" /></a>
         {% endif %}
 
-        <!-- Site title (lowercase) -->
-        <h1>{{ site.title | downcase }}</h1>
+        <h1>{{ site.title }}</h1>
         <!-- Example of non-Latin name (commented out) -->
         <!-- <h1>林 咏毅</h1> -->
 
         <!-- Position and affiliation if provided -->
         {% if site.position %}
-        <position style="font-size:1rem;">{{ site.position | downcase }}</position>
+        <position style="font-size:1rem;">{{ site.position }}</position>
         <br>
         {% endif %}
         {% if site.affiliation %}
-        <a href="{{ site.affiliation_link }}" rel="noopener" style="font-size:1rem;"><autocolor>{{ site.affiliation | downcase }}</autocolor></a>
+        <a href="{{ site.affiliation_link }}" rel="noopener" style="font-size:1rem;"><autocolor>{{ site.affiliation }}</autocolor></a>
         <br>
         {% endif %}
         <!-- Email if provided -->
