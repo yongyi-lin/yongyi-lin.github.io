@@ -1,0 +1,8 @@
+<article class="paper reveal">
+  <h3>{{ include.p.title }}</h3>
+  {% if include.p.authors or include.p.meta %}
+  <p class="meta">{% if include.p.authors %}{{ include.p.authors }}{% if include.p.meta %}. {% endif %}{% endif %}{% if include.p.meta %}{{ include.p.meta }}{% endif %}</p>
+  {% endif %}
+  {% if include.p.abstract %}<p class="abstract">{{ include.p.abstract }}</p>{% endif %}
+  {% if include.p.pdf %}<a class="draft-link" href="{{ include.p.pdf }}">{{ include.p.link_label | default: "Draft here" }}</a>{% endif %}
+</article>

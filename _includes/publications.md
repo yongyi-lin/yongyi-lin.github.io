@@ -1,50 +1,28 @@
-<h2 id="publications" style="font-size:2rem;">Articles</h2>
-<div class="publications">
-  <ol class="bibliography" style="padding-left: 0;">
-    {% for link in site.data.publications.main %}
-    <li>
-      <div class="pub-row" style="margin-bottom: 4px;">
-        <!-- Article Image and Badge (commented out as per your _site version) -->
-        <!-- <div class="col-sm-3 abbr" style="position: relative;padding-right: 15px;padding-left: 15px;">
-          {% if link.image %} 
-          <img src="{{ link.image }}" class="teaser img-fluid z-depth-1" style="width=100;height=40%">
-          {% if link.conference_short %} 
-          <abbr class="badge">{{ link.conference_short }}</abbr>
-          {% endif %}
-          {% endif %}
-        </div> -->
-        
-        <!-- Article Details -->
-        <div class="col-sm-9" style="position: relative;padding-right: 15px;padding-left: 0px;">
-          <div class="title" style="font-weight: normal; font-size: 1em;">
-            <a href="{{ link.pdf }}" style="font-weight: normal; font-size: 1.1em; color:rgb(129, 3, 3);">{{ link.title }}</a>
-          </div>
-          <div class="author">{{ link.authors }}</div>
-          <div class="periodical"><em>{{ link.conference }}</em></div>
-          
-          {% if link.notes %}
-          <div class="periodical"><em>{{ link.notes }}</em></div>
-          {% endif %}
-          
-          {% if link.additional_info %}
-          <div><em>{{ link.additional_info }}</em></div>
-          {% endif %}
-        </div>
-      </div>
-    </li>
-    {% endfor %}
-  </ol>
-</div>
+<section id="research">
+  <div class="wrap measure">
+    <p class="eyebrow reveal"><span class="num">01</span> &nbsp;/&nbsp; Research</p>
+    <h2 class="section-title reveal">Research</h2>
 
-<!-- Work in Progress Section -->
-<h2 id="work-in-progress">Work in Progress</h2>
-{% for project in site.data.publications.work_in_progress %}
-<div class="pub-row" style="margin-bottom: 0;">
-  <div class="col-sm-9" style="position: relative;padding-right: 15px;padding-left: 0px;">
-    <div class="title" style="font-weight: normal; font-size: 1.1em;">
-      <strong>{{ project.title }}</strong> {{ project.status }}
-    </div>
-    <div class="author">{{ project.authors }}</div>
+    {% assign _pubs = site.data.publications %}
+
+    {% if _pubs.job_market_paper.size > 0 %}
+      <p class="group-label reveal">Job Market Paper</p>
+      {% for p in _pubs.job_market_paper %}{% include paper.html p=p %}{% endfor %}
+    {% endif %}
+
+    {% if _pubs.working_papers.size > 0 %}
+      <p class="group-label reveal">Working Papers</p>
+      {% for p in _pubs.working_papers %}{% include paper.html p=p %}{% endfor %}
+    {% endif %}
+
+    {% if _pubs.publications.size > 0 %}
+      <p class="group-label reveal">Publications</p>
+      {% for p in _pubs.publications %}{% include paper.html p=p %}{% endfor %}
+    {% endif %}
+
+    {% if _pubs.work_in_progress.size > 0 %}
+      <p class="group-label reveal">Selected Works in Progress</p>
+      {% for p in _pubs.work_in_progress %}{% include paper.html p=p %}{% endfor %}
+    {% endif %}
   </div>
-</div>
-{% endfor %}
+</section>

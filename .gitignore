@@ -3,6 +3,14 @@ _site/
 .jekyll-cache/
 .jekyll-metadata
 
+# Ruby / Bundler (local install paths)
+.bundle/
+vendor/
+
+# Stray LaTeX scratch files (not part of the site)
+cursor_latex_test.tex
+build/
+
 # System files
 .DS_Store
 .DS_Store?

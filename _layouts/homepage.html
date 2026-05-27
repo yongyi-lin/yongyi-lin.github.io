@@ -1,206 +1,459 @@
-<!--
-  Main homepage layout for the Jekyll site.
-  This template renders the homepage with dynamic content and metadata.
-  It uses Liquid templating to inject site variables and conditionally render sections.
--->
-
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
-  <head>
-    <!-- Page title and site affiliation -->
-    <title>{{ site.title }} | {{site.affiliation}}</title>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{{ site.title }}{% if site.affiliation %} | {{ site.affiliation }}{% endif %}</title>
+<meta name="description" content="{{ site.description }}" />
+{% if site.keywords %}<meta name="keywords" content="{{ site.keywords }}" />{% endif %}
+{% if site.canonical %}<link rel="canonical" href="{{ site.canonical }}" />{% endif %}
+{% if site.favicon %}
+<link rel="icon" href="{{ site.favicon | relative_url }}" type="image/png" />
+{% else %}
+<link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'&gt;&lt;rect width='32' height='32' fill='%23fbfaf6'/&gt;&lt;circle cx='16' cy='16' r='6' fill='%232c5545'/&gt;&lt;/svg&gt;" />
+{% endif %}
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&display=swap" rel="stylesheet" />
+<script>document.documentElement.classList.add('js');</script>
+<style>
+  :root {
+    --paper:      #fbfaf6;
+    --paper-warm: #f4f1e8;
+    --ink:        #1c1b18;
+    --ink-soft:   #5d584d;
+    --ink-faint:  #8b8576;
+    --accent:     #2c5545;
+    --accent-deep:#1d3a2e;
+    --rule:       #e4e0d4;
+    --nav-bg:     rgba(251, 250, 246, 0.88);
+  }
 
-    <!-- Meta tags for character set, compatibility, viewport, and description -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{ site.description }}">
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <!-- Optional meta keywords if provided in _config.yml -->
-    {% if site.keywords %}
-    <meta name="keywords" content="{{ site.keywords }}">
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Newsreader", Georgia, serif;
+    font-optical-sizing: auto;
+    font-size: 18px;
+    line-height: 1.62;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--accent); }
+
+  /* ---------- shared layout ---------- */
+  .wrap { max-width: 1060px; margin: 0 auto; padding: 0 2rem; }
+  .measure { max-width: 680px; }
+
+  section { padding: 5.5rem 0; }
+  section + section { border-top: 1px solid var(--rule); }
+
+  /* ---------- eyebrow / section heading ---------- */
+  .eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  .eyebrow .num { color: var(--ink-faint); }
+
+  h2.section-title {
+    font-size: clamp(1.9rem, 4.2vw, 2.7rem);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    margin-bottom: 2.6rem;
+  }
+
+  /* ---------- navigation ---------- */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+  .nav.scrolled { border-bottom-color: var(--rule); }
+  .nav-inner {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 4.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+  .nav-name {
+    font-size: 1.05rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+    padding-bottom: 2px;
+    border-bottom: 1.5px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a.active { color: var(--ink); border-bottom-color: var(--accent); }
+
+  .cv-btn {
+    font-family: inherit;
+    font-size: 0.92rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 0.5rem 1rem;
+    border-radius: 2px;
+    transition: background 0.2s ease, color 0.2s ease;
+    white-space: nowrap;
+  }
+  .cv-btn:hover { background: var(--accent); color: var(--paper); }
+
+  /* ---------- hero ---------- */
+  .hero { padding-top: 5rem; padding-bottom: 5.5rem; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 3.5rem;
+    align-items: start;
+  }
+  .hero h1 {
+    font-size: clamp(2.7rem, 6.5vw, 4.4rem);
+    font-weight: 500;
+    line-height: 1.04;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.7rem;
+  }
+  .hero .affil {
+    font-size: 1.2rem;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin-bottom: 1.6rem;
+  }
+  .contact {
+    font-size: 1rem;
+    color: var(--ink-soft);
+    line-height: 1.9;
+    margin-bottom: 1.8rem;
+  }
+  .contact a { color: var(--accent); text-decoration: none; }
+  .contact a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .contact .dot { color: var(--ink-faint); margin: 0 0.5rem; }
+  .intro { font-size: 1.12rem; }
+  .intro .jobmkt {
+    display: inline-block;
+    margin-top: 1rem;
+    font-style: italic;
+    color: var(--ink-soft);
+  }
+
+  /* photo + placeholder */
+  .portrait {
+    aspect-ratio: 4 / 5;
+    width: 100%;
+    border: 1px solid var(--rule);
+    padding: 8px;
+    background: var(--paper);
+  }
+  .portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .portrait-ph {
+    width: 100%; height: 100%;
+    background: var(--paper-warm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+    color: var(--ink-faint);
+  }
+  .portrait-ph svg { width: 64px; height: 64px; opacity: 0.55; }
+  .portrait-ph span {
+    font-size: 0.82rem;
+    font-style: italic;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  /* ---------- research ---------- */
+  .group-label {
+    font-size: 0.82rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin: 2.8rem 0 1.4rem;
+  }
+  .group-label:first-of-type { margin-top: 0; }
+
+  .paper { margin-bottom: 2.4rem; }
+  .paper:last-child { margin-bottom: 0; }
+  .paper h3 {
+    font-size: 1.32rem;
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.35rem;
+  }
+  .paper .meta {
+    font-size: 0.98rem;
+    font-style: italic;
+    color: var(--ink-soft);
+    margin-bottom: 0.7rem;
+  }
+  .paper .abstract { color: var(--ink); margin-bottom: 0.7rem; }
+  .draft-link {
+    font-size: 0.96rem;
+    text-decoration: none;
+    color: var(--accent);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 1px;
+    transition: border-color 0.2s ease;
+  }
+  .draft-link:hover { border-bottom-color: var(--accent); }
+  .draft-link::after { content: " \2197"; font-style: normal; }
+
+  /* ---------- teaching ---------- */
+  .institution {
+    font-size: 1.18rem;
+    font-weight: 500;
+    margin: 2.6rem 0 1.2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .institution:first-of-type { margin-top: 0; }
+  .course { margin-bottom: 1.4rem; }
+  .course .title { font-weight: 500; font-size: 1.08rem; }
+  .course .detail { font-size: 0.98rem; color: var(--ink-soft); font-style: italic; }
+
+  /* ---------- personal ---------- */
+  #personal p { font-size: 1.1rem; }
+  #personal p + p { margin-top: 1rem; }
+
+  /* ---------- footer ---------- */
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 2.5rem 0;
+    font-size: 0.92rem;
+    color: var(--ink-faint);
+  }
+  .footer-inner {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  footer a { color: var(--ink-soft); text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+
+  /* ---------- focus + motion ---------- */
+  a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 1px;
+  }
+
+  .js .reveal { opacity: 0; transform: translateY(14px); }
+  .js .reveal.in {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: none; }
+  }
+  .js .hero-anim { opacity: 0; animation: fadeUp 0.8s ease forwards; }
+  .js .hero-anim:nth-child(1) { animation-delay: 0.05s; }
+  .js .hero-anim:nth-child(2) { animation-delay: 0.13s; }
+  .js .hero-anim:nth-child(3) { animation-delay: 0.21s; }
+  .js .hero-anim:nth-child(4) { animation-delay: 0.29s; }
+  .hero-grid > .portrait.hero-anim { animation-delay: 0.18s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .js .reveal, .js .hero-anim, .hero-grid > .portrait.hero-anim {
+      opacity: 1 !important; transform: none !important; animation: none !important;
+    }
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 760px) {
+    body { font-size: 17px; }
+    .wrap, .nav-inner, .footer-inner { padding-left: 1.4rem; padding-right: 1.4rem; }
+    .nav-inner { gap: 0.9rem; }
+    .nav-links { gap: 1.1rem; }
+    .nav-links a { font-size: 0.95rem; }
+    .cv-btn { font-size: 0.8rem; padding: 0.45rem 0.7rem; }
+    .hero-grid { grid-template-columns: 1fr; gap: 2.2rem; }
+    .portrait { max-width: 240px; order: -1; }
+    section { padding: 4rem 0; }
+  }
+  @media (max-width: 460px) {
+    .nav-name { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ======================= NAVIGATION ======================= -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="nav-name" href="#top">{{ site.title }}</a>
+    <ul class="nav-links">
+      <li><a href="#research">Research</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#personal">Personal</a></li>
+    </ul>
+    {% if site.cv_link %}
+    <a class="cv-btn" href="{{ site.cv_link | relative_url }}">Download CV</a>
     {% endif %}
+  </div>
+</nav>
 
-    <!-- Canonical link for SEO if provided -->
-    {% if site.canonical %}
-    <link rel="canonical" href="{{ site.canonical }}"/>
-    {% endif %}
+<!-- ======================= HERO / INTRO ======================= -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <h1 class="hero-anim">{{ site.title }}</h1>
+        <p class="affil hero-anim">
+          {% if site.department %}{{ site.department }}, {% endif %}{% if site.affiliation_link %}<a href="{{ site.affiliation_link }}" rel="noopener" style="color:inherit;">{{ site.affiliation }}</a>{% else %}{{ site.affiliation }}{% endif %}
+        </p>
 
-    <!-- Favicon -->
-    <link rel="icon" href="{{ site.favicon }}" type="image/png" />
+        <p class="contact hero-anim">
+          {% if site.phone %}Phone&nbsp;{{ site.phone }}<br />{% endif %}
+          {% if site.email %}Email&nbsp;<a href="mailto:{{ site.email }}">{{ site.email }}</a><br />{% endif %}
+          {% assign _first = true %}
+          {% if site.linkedin %}{% unless _first %}<span class="dot">&middot;</span>{% endunless %}<a href="{{ site.linkedin }}">LinkedIn</a>{% assign _first = false %}{% endif %}
+          {% if site.github_link %}{% unless _first %}<span class="dot">&middot;</span>{% endunless %}<a href="{{ site.github_link }}">GitHub</a>{% assign _first = false %}{% endif %}
+          {% if site.twitter %}{% unless _first %}<span class="dot">&middot;</span>{% endunless %}<a href="{{ site.twitter }}">Twitter / X</a>{% assign _first = false %}{% endif %}
+          {% if site.google_scholar %}{% unless _first %}<span class="dot">&middot;</span>{% endunless %}<a href="{{ site.google_scholar }}">Google&nbsp;Scholar</a>{% assign _first = false %}{% endif %}
+        </p>
 
-    <!-- External icon fonts: Academicons and Font Awesome -->
-    <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin=anonymous>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-    <!-- Font selection: Sans Serif or default -->
-    {% if site.font == "Sans Serif" %}
-    <link rel="stylesheet" href="assets/css/font_sans_serif.css">
-    {% else %}
-    <link rel="stylesheet" href="assets/css/font.css">
-    {% endif %}
+        <p class="intro hero-anim">
+          {{ site.intro }}
+          {% if site.job_market_line %}{% unless site.job_market_line == "" %}
+          <span class="jobmkt">{{ site.job_market_line }}</span>
+          {% endunless %}{% endif %}
+        </p>
+      </div>
 
-    <!-- Theme stylesheets -->
-    <link rel="stylesheet" href="assets/css/style-no-dark-mode.css">
-    <link rel="stylesheet" href="assets/css/publications-no-dark-mode.css">
-
-    <!-- Inline CSS for heading sizes and section spacing -->
-    <style>
-      h1 {
-        font-size: 2.5rem !important;
-      }
-      h2 {
-        font-size: 2rem !important;
-      }
-
-      /* Ensure consistent vertical spacing between sections */
-      section>h2 {
-        margin-top: 30px !important;
-        margin-bottom: 20px !important;
-      }
-
-      section>h2:first-child {
-        margin-top: 0 !important;
-      }
-
-      section>p,
-      section>ul,
-      section>div.publications,
-      section>.pub-row {
-        margin-bottom: 24px !important;
-        margin-top: 0 !important;
-      }
-
-      .publications {
-        margin-bottom: 0 !important;
-      }
-
-      .bibliography>li {
-        margin-bottom: 8px !important;
-      }
-
-      /* Remove extra space after last section */
-      section>p:last-child {
-        margin-bottom: 0 !important;
-      }
-
-      /* Remove extra <br> at the end of teaching section */
-      section>br {
-        display: none;
-      }
-
-      /* Force left alignment for sidebar elements */
-      header {
-        text-align: left !important;
-      }
-      
-      .image.avatar {
-        text-align: left !important;
-      }
-      
-      .image.avatar img {
-        display: block !important;
-        margin-left: 0 !important;
-      }
-      
-      .social-icons {
-        text-align: left !important;
-      }
-    </style>
-
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <!-- Avatar image if provided -->
+      <div class="portrait hero-anim">
         {% if site.avatar %}
-        <a class="image avatar"><img src="{{ site.avatar }}" alt="avatar" /></a>
-        {% endif %}
-
-        <h1>{{ site.title }}</h1>
-        <!-- Example of non-Latin name (commented out) -->
-        <!-- <h1>林 咏毅</h1> -->
-
-        <!-- Position and affiliation if provided -->
-        {% if site.position %}
-        <position style="font-size:1rem;">{{ site.position }}</position>
-        <br>
-        {% endif %}
-        {% if site.affiliation %}
-        <a href="{{ site.affiliation_link }}" rel="noopener" style="font-size:1rem;"><autocolor>{{ site.affiliation }}</autocolor></a>
-        <br>
-        {% endif %}
-        <!-- Email if provided -->
-        {% if site.email %}
-        <email>{{ site.email }}</email>
-        {% endif %}
-
-        <br>
-        <br>
-        <!-- Social icons: Google Scholar, CV, GitHub, LinkedIn, Twitter (conditionally rendered) -->
-        <div class="social-icons">
-        {% if site.google_scholar %}
-        <a href="{{ site.google_scholar }}">
-          <i class="ai ai-google-scholar" style="font-size:1.2rem"></i>
-        </a>  
-        {% endif %}
-
-        {% if site.cv_link %}
-        <a href="{{ site.cv_link }}">
-          <i class="ai ai-cv" style="font-size:1.5rem;"></i>
-        </a>
-        {% endif %}
-
-        {% if site.github_link %}
-        <a href="{{ site.github_link }}">
-          <i class="fab fa-github"></i>
-        </a>
-        {% endif %}
-
-        {% if site.linkedin %}
-        <a href="{{ site.linkedin }}">
-          <i class="fab fa-linkedin"></i>
-        </a>
-        {% endif %}
-
-        {% if site.twitter %}
-        <a href="{{ site.twitter }}">
-          <i class="fab fa-x-twitter"></i>
-        </a>
-        {% endif %}
+        <img src="{{ site.avatar | relative_url }}" alt="Portrait of {{ site.title }}" />
+        {% else %}
+        <div class="portrait-ph">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+            <circle cx="12" cy="8.5" r="4.2" />
+            <path d="M4 21c0-4.4 3.6-7.5 8-7.5s8 3.1 8 7.5" />
+          </svg>
+          <span>Set <code>avatar</code> in <code>_config.yml</code></span>
         </div>
-        <br>
-
-      </header>
-      <section>
-
-      <!-- Main page content injected here -->
-      {{ content }}
-
-      <br>
-
-      <!-- Optional footnote if enabled in config -->
-      {% if site.enable_footnote %}
-      <p><small>Powered by Jekyll and <a href="https://github.com/yaoyao-liu/minimal-light" target="_blank" rel="noopener">Minimal Light</a> theme.</small></p>
-      {% endif %}
-
-      </section>
-      <footer>
-        <!-- Footer (currently empty) -->
-      </footer>
+        {% endif %}
+      </div>
     </div>
-    <!-- JS for GitHub Pages scaling bug fix -->
-    <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
-    <!-- Google Analytics tracking if enabled -->
-    {% if site.google_analytics %}
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-      ga('create', '{{ site.google_analytics }}', 'auto');
-      ga('send', 'pageview');
-    </script>
-    {% endif %}
-  </body>
+  </div>
+</header>
+
+<!-- ======================= MAIN CONTENT (Research / Teaching / Personal) ======================= -->
+{{ content }}
+
+<!-- ======================= FOOTER ======================= -->
+<footer>
+  <div class="footer-inner">
+    <span>&copy; {{ site.time | date: '%Y' }} {{ site.title }}</span>
+    <a href="#top">Back to top &uarr;</a>
+  </div>
+</footer>
+
+<script>
+  // Nav: hairline border once the page is scrolled
+  var nav = document.getElementById('nav');
+  function onScroll() {
+    nav.classList.toggle('scrolled', window.scrollY > 8);
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Reveal-on-scroll + active nav link (graceful fallback if unsupported)
+  if ('IntersectionObserver' in window) {
+    var revealObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          revealObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      revealObs.observe(el);
+    });
+
+    var links = {};
+    document.querySelectorAll('.nav-links a').forEach(function (a) {
+      links[a.getAttribute('href').slice(1)] = a;
+    });
+    var navObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          Object.values(links).forEach(function (l) { l.classList.remove('active'); });
+          if (links[e.target.id]) links[e.target.id].classList.add('active');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    document.querySelectorAll('section[id]').forEach(function (s) {
+      navObs.observe(s);
+    });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      el.classList.add('in');
+    });
+  }
+</script>
+
+{% if site.google_analytics %}
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '{{ site.google_analytics }}', 'auto');
+  ga('send', 'pageview');
+</script>
+{% endif %}
+</body>
 </html>
