@@ -1,6 +1,6 @@
 <section id="teaching">
   <div class="wrap measure">
-    <p class="eyebrow reveal"><span class="num">02</span> &nbsp;/&nbsp; Teaching</p>
+    <p class="eyebrow reveal"><span class="num">03</span> &nbsp;/&nbsp; Teaching</p>
     <h2 class="section-title reveal">Teaching</h2>
 
     <p class="institution reveal">University of Maryland</p>

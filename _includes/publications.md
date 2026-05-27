@@ -1,6 +1,6 @@
 <section id="research">
   <div class="wrap measure">
-    <p class="eyebrow reveal"><span class="num">01</span> &nbsp;/&nbsp; Research</p>
+    <p class="eyebrow reveal"><span class="num">02</span> &nbsp;/&nbsp; Research</p>
     <h2 class="section-title reveal">Research</h2>
 
     {% assign _pubs = site.data.publications %}

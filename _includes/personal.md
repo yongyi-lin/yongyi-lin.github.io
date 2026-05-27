@@ -1,6 +1,6 @@
 <section id="personal">
   <div class="wrap measure">
-    <p class="eyebrow reveal"><span class="num">03</span> &nbsp;/&nbsp; Personal</p>
+    <p class="eyebrow reveal"><span class="num">04</span> &nbsp;/&nbsp; Personal</p>
     <h2 class="section-title reveal">Personal</h2>
     <p class="reveal">
       A short, casual paragraph here about what you enjoy away from research &mdash;
