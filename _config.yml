@@ -6,24 +6,23 @@ affiliation: University of Maryland
 affiliation_link: https://www.rhsmith.umd.edu/
 email: ylin17@umd.edu
 # Optional phone (e.g., "+1 000-000-0000"). Leave blank to hide.
-phone: (+1) (240)-726-2453
+phone: (+1) 240-726-2453
 # Optional job-market line shown at the end of the welcome paragraph.
 # Set to a blank value (job_market_line:) to hide it.
 job_market_line: "I am on the 2026–2027 job market."
 
 # Welcome / intro paragraph displayed in the hero (HTML allowed).
 intro: >-
-  Welcome! I am a fifth-year Ph.D. candidate in Managerial Economics and
-  Strategy at the Robert H. Smith School of Business, University of Maryland.
+  Welcome! I am a sixth-year Ph.D. candidate in Managerial Economics at the University of Maryland.
   I examine how regulations and market structures shape innovation strategies
-  in knowledge-intensive industries — including how transparency mandates,
+  in knowledge-intensive industries, including how transparency mandates,
   intellectual property regimes, and venture capital concentration influence
   firms' R&amp;D decisions, from geographic allocation and risk-taking to
   the fundamental choice between novel and incremental innovation.
 
 # Search Engine Optimization (SEO)
 # The following information is used to improve the website traffic from search engines, e.g., Google.
-keywords: Yongyi Lin, UMD, University of Maryland, Ph.D. candidate, Managerial Economics, Strategy, Pharmaceutical Industry, Industrial Organization, Strategic Management, Entrepreneurship
+keywords: Yongyi Lin, UMD, Econ, Economics, University of Maryland, Ph.D. candidate, Managerial Economics, Strategy, Pharmaceutical Industry, Industrial Organization, Strategic Management, Entrepreneurship
 description: Yongyi Lin - Ph.D. candidate in Managerial Economics at the University of Maryland. Research focuses on regulations, innovation, and competitive strategies in knowledge-intensive industries.
 canonical: https://yongyi-lin.github.io
 
