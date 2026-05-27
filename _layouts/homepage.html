@@ -337,7 +337,9 @@
     <ul class="nav-links">
       <li><a href="#research">Research</a></li>
       <li><a href="#teaching">Teaching</a></li>
+      {%- comment -%} Personal nav link hidden until the section is filled in.
       <li><a href="#personal">Personal</a></li>
+      {%- endcomment -%}
     </ul>
     {% if site.cv_link %}
     <a class="cv-btn" href="{{ site.cv_link | relative_url }}">Download CV</a>
