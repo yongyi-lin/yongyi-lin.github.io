@@ -29,7 +29,7 @@ job_market_paper:
 working_papers:
   - title: "Venture Capital, Market Power, and Financing of Innovation"
     authors: Chengmou Lei, <strong>Yongyi Lin</strong>
-    meta: "Poster presentation at the <strong>2026 American Finance Association Annual Meeting</strong>."
+    status: "Poster presentation at the <strong>2026 American Finance Association Annual Meeting</strong>."
     pdf: https://www.dropbox.com/scl/fi/630p6927873bgt1gaq19w/afa_poster.pdf?rlkey=iix1f25w79kx3athfz216ea11&st=mxzvs3f6&dl=0
     link_label: "AFA poster"
 
@@ -41,7 +41,7 @@ working_papers:
 publications:
   - title: "Has Urbanization Accelerated PM2.5 Emissions? An Empirical Analysis with Cross-country Data"
     authors: Qichen Dong, <strong>Yongyi Lin</strong>, Jieyu Huang, Zhongfei Chen
-    meta: "<em>China Economic Review</em>"
+    status: "<strong>China Economic Review</strong>"
     pdf: https://www.dropbox.com/scl/fi/z4tj2lzqqmdk7cotpg4t6/cer.pdf?rlkey=6v1az4b6s0ps65pl1flmjljxj&st=6jjn6q2q&dl=0
 
 work_in_progress:
